@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Identify books from their covers and keep a simple reading library.">
+  <meta name="theme-color" content="#f7f3ea">
+  <title>Bookrift | Find your next read</title>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header" id="site-header" hidden>
+    <a class="brand" href="#home" aria-label="Bookrift home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64"><path fill="none" stroke="currentColor" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" d="M8 24 26 44c2.5 2.8 9.5 2.8 12 0l18-20"/><g fill="currentColor"><path d="M32 44 13 22.6 16.5 21Z"/><path d="M32 44 19 19.8 22.5 18.4Z"/><path d="M32 44 25 17 28.5 15.8Z"/><path d="M32 44 51 22.6 47.5 21Z"/><path d="M32 44 45 19.8 41.5 18.4Z"/><path d="M32 44 39 17 35.5 15.8Z"/></g></svg>
+      </span>
+      <span>Bookrift</span>
+    </a>
+
+    <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">
+      Menu
+    </button>
+
+    <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+      <a href="#home" data-page-link="home">Home</a>
+      <a href="#scan" data-page-link="scan">Scan cover</a>
+      <a href="#library" data-page-link="library">My library</a>
+      <a href="#profile" data-page-link="profile">Profile</a>
+      <a href="#admin" data-page-link="admin" id="admin-link" hidden>Admin</a>
+      <button class="link-button logout-button" id="logout-button" type="button">Sign out</button>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <!-- Login se pehle wala home page. -->
+    <section class="welcome-view" id="welcome-view">
+      <header class="public-header">
+        <div class="public-nav">
+          <a class="brand" href="#top" aria-label="Bookrift home">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 64"><path fill="none" stroke="currentColor" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" d="M8 24 26 44c2.5 2.8 9.5 2.8 12 0l18-20"/><g fill="currentColor"><path d="M32 44 13 22.6 16.5 21Z"/><path d="M32 44 19 19.8 22.5 18.4Z"/><path d="M32 44 25 17 28.5 15.8Z"/><path d="M32 44 51 22.6 47.5 21Z"/><path d="M32 44 45 19.8 41.5 18.4Z"/><path d="M32 44 39 17 35.5 15.8Z"/></g></svg>
+            </span>
+            <span>Bookrift</span>
+          </a>
+          <nav class="public-links" aria-label="Public navigation">
+            <a href="#public-scan">Identify</a>
+            <a href="#value">What you get</a>
+            <a href="#contact-card">Contact</a>
+            <button class="button secondary small" type="button" data-auth-view="login">Sign in</button>
+          </nav>
+        </div>
+      </header>
+
+      <section class="landing-hero" id="top">
+        <div class="landing-container hero-grid">
+          <div class="welcome-copy">
+            <p class="eyebrow">Your reading companion</p>
+            <h1>Your books,<br><span>all in one place.</span></h1>
+            <p class="lead">Find books from a cover photo, explore their details, and build a library that grows with your reading.</p>
+            <div class="hero-actions">
+              <button class="button primary" type="button" data-auth-view="register">Get started</button>
+              <a class="editorial-link" href="#value">See how it works <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+          <aside class="hero-aside" aria-label="What Bookrift is for">
+            <p class="hero-quote">Find, save, and enjoy.</p>
+            <p>Keep your books, reading progress, favourites, and recommendations together in one simple place.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="value-section" id="value">
+        <div class="landing-container">
+          <h2>What you can do</h2>
+          <div class="value-grid">
+            <article><span>01</span><h3>Snap and search</h3><p>Take a cover photo and find the book in seconds.</p></article>
+            <article><span>02</span><h3>Save your books</h3><p>Keep favourites, reading plans, and finished books together.</p></article>
+            <article><span>03</span><h3>Find your next read</h3><p>Discover books that match your interests.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="landing-scan" id="public-scan">
+        <div class="landing-container scan-promo-grid">
+          <div>
+            <p class="eyebrow">Find a book</p>
+            <h2>Choose how to search</h2>
+            <p>Upload a cover, take a photo, scan the barcode, or search manually.</p>
+            <button class="button primary" type="button" data-auth-view="login">Sign in to scan</button>
+          </div>
+          <div class="cover-frame" aria-hidden="true">
+            <span class="frame-corner top-left"></span><span class="frame-corner top-right"></span>
+            <svg viewBox="0 0 24 24"><path d="M4 7V4h3M17 4h3v3M20 17v3h-3M7 20H4v-3M8 8h8v8H8z"/></svg>
+            <strong>Cover scan</strong><small>Camera or photo upload</small>
+            <span class="frame-corner bottom-left"></span><span class="frame-corner bottom-right"></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contact-card">
+        <div class="landing-container">
+          <div class="contact-heading">
+            <p class="eyebrow">Contact</p>
+            <h2>We’d love to hear from you</h2>
+            <p>Questions, feedback, or an identification issue? Send us a note.</p>
+          </div>
+          <div class="contact-grid">
+            <div class="contact-info">
+              <h3>Get in touch</h3>
+              <div><strong>Questions</strong><span>Ask anything about using Bookrift.</span></div>
+              <div><strong>Identification issue</strong><span>Tell us the title and what went wrong.</span></div>
+              <div><strong>Response</strong><span>Your message is saved for the admin to review.</span></div>
+            </div>
+            <form id="contact-form" class="stack-form contact-form">
+              <div class="contact-fields">
+                <div><label for="contact-name">Your name</label><input id="contact-name" name="name" autocomplete="name" minlength="2" maxlength="100" placeholder="Full name" required></div>
+                <div><label for="contact-email">Email</label><input id="contact-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
+              </div>
+              <label for="contact-subject">Subject <span>(optional)</span></label>
+              <input id="contact-subject" name="subject" maxlength="200" placeholder="What is it about?">
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message" name="message" minlength="10" maxlength="3000" placeholder="Write your message here..." required></textarea>
+              <p class="form-message" data-form-message aria-live="polite"></p>
+              <button class="button primary" type="submit">Send message</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <div class="landing-container footer-grid">
+          <div><a class="footer-brand" href="#top">Book<span>rift</span></a><p>Identify a book, understand it, and remember what you read.</p></div>
+          <div><strong>Explore</strong><a href="#public-scan">Identify a book</a><a href="#value">What you get</a><a href="#contact-card">Contact</a></div>
+          <div><strong>Account</strong><button type="button" data-auth-view="login">Sign in</button><button type="button" data-auth-view="register">Create account</button></div>
+        </div>
+        <div class="footer-bottom">© 2026 Bookrift. Student project.</div>
+      </footer>
+
+      <div class="auth-modal" id="auth-modal" role="dialog" aria-modal="true" aria-label="Bookrift account" hidden>
+        <div class="auth-card" id="auth-card">
+          <button class="auth-close" id="auth-close" type="button" aria-label="Close account window">×</button>
+        <div class="auth-tabs" role="tablist" aria-label="Account options">
+          <button class="auth-tab active" type="button" data-auth-view="login" role="tab" aria-selected="true">Sign in</button>
+          <button class="auth-tab" type="button" data-auth-view="register" role="tab" aria-selected="false">Create account</button>
+        </div>
+
+        <form id="login-form" class="auth-form" data-auth-form="login">
+          <div>
+            <h2>Welcome back</h2>
+            <p>Sign in to scan and manage your books.</p>
+          </div>
+          <label for="login-email">Email address</label>
+          <input id="login-email" name="email" type="email" autocomplete="email" required>
+          <label for="login-password">Password</label>
+          <input id="login-password" name="password" type="password" autocomplete="current-password" required>
+          <p class="form-message" data-form-message aria-live="polite"></p>
+          <button class="button primary full" type="submit">Sign in</button>
+          <button class="text-action" id="show-forgot" type="button">Forgot password?</button>
+          <button class="text-action" type="button" data-auth-view="resend">Need a new verification code?</button>
+        </form>
+
+        <form id="register-form" class="auth-form" data-auth-form="register" hidden>
+          <div>
+            <h2>Create your account</h2>
+            <p>Use at least 8 characters with a letter and number.</p>
+          </div>
+          <label for="register-name">Full name</label>
+          <input id="register-name" name="name" autocomplete="name" minlength="2" maxlength="100" required>
+          <label for="register-email">Email address</label>
+          <input id="register-email" name="email" type="email" autocomplete="email" required>
+          <label for="register-password">Password</label>
+          <input id="register-password" name="password" type="password" autocomplete="new-password" minlength="8" required>
+          <p class="form-message" data-form-message aria-live="polite"></p>
+          <button class="button primary full" type="submit">Create account</button>
+        </form>
+
+        <form id="code-form" class="auth-form" data-auth-form="code" hidden>
+          <div>
+            <h2>Enter your verification code</h2>
+            <p>We sent a 6-digit code to your email address. It expires in 15 minutes.</p>
+          </div>
+          <label for="code-email">Email address</label>
+          <input id="code-email" name="email" type="email" autocomplete="email" required>
+          <label for="code-value">Verification code</label>
+          <input id="code-value" name="code" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" maxlength="6" required>
+          <p class="form-message" data-form-message aria-live="polite"></p>
+          <button class="button primary full" type="submit">Verify email</button>
+          <button class="text-action" type="button" data-auth-view="resend">Send a new code</button>
+          <button class="text-action" type="button" data-auth-view="login">Back to sign in</button>
+        </form>
+
+        <form id="forgot-form" class="auth-form" data-auth-form="forgot" hidden>
+          <div>
+            <h2>Reset your password</h2>
+            <p>We will send a reset code if the account exists.</p>
+          </div>
+          <label for="forgot-email">Email address</label>
+          <input id="forgot-email" name="email" type="email" autocomplete="email" required>
+          <p class="form-message" data-form-message aria-live="polite"></p>
+          <button class="button primary full" type="submit">Send reset code</button>
+          <button class="text-action" type="button" data-auth-view="login">Back to sign in</button>
+        </form>
+
+        <form id="resend-form" class="auth-form" data-auth-form="resend" hidden>
+          <div>
+            <h2>Send a new verification code</h2>
+            <p>Enter the email address used for your account.</p>
+          </div>
+          <label for="resend-email">Email address</label>
+          <input id="resend-email" name="email" type="email" autocomplete="email" required>
+          <p class="form-message" data-form-message aria-live="polite"></p>
+          <button class="button primary full" type="submit">Send new code</button>
+          <button class="text-action" type="button" data-auth-view="login">Back to sign in</button>
+        </form>
+
+        <form id="reset-form" class="auth-form" data-auth-form="reset" hidden>
+          <div>
+            <h2>Choose a new password</h2>
+            <p>Enter the 6-digit code we sent, then your new password.</p>
+          </div>
+          <label for="reset-email">Email address</label>
+          <input id="reset-email" name="email" type="email" autocomplete="email" required>
+          <label for="reset-code">Reset code</label>
+          <input id="reset-code" name="code" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" maxlength="6" required>
+          <label for="reset-password">New password</label>
+          <input id="reset-password" name="password" type="password" autocomplete="new-password" minlength="8" required>
+          <p class="form-message" data-form-message aria-live="polite"></p>
+          <button class="button primary full" type="submit">Update password</button>
+          <button class="text-action" type="button" data-auth-view="login">Back to sign in</button>
+        </form>
+        </div>
+      </div>
+    </section>
+
+    <div class="app-shell" id="app-shell" hidden>
+      <section class="page" data-page="home">
+        <div class="page-heading home-heading">
+          <div>
+            <p class="eyebrow">Your reading space</p>
+            <h1 id="home-greeting">Welcome</h1>
+            <p>Continue your library or find another book.</p>
+          </div>
+          <a class="button primary" href="#scan">Scan a cover</a>
+        </div>
+        <div class="summary-grid">
+          <article class="summary-card"><span>Books saved</span><strong id="home-book-count">0</strong></article>
+          <article class="summary-card wide"><span>Your interests</span><strong id="home-interests">Not chosen yet</strong></article>
+        </div>
+        <div class="section-heading">
+          <div><p class="eyebrow">Selected for you</p><h2>Books you may enjoy</h2><p>Suggestions based on your interests and saved books.</p></div>
+        </div>
+        <div class="book-grid" id="closest-books"></div>
+      </section>
+
+      <!-- Cover, manual search aur barcode ke alag forms. -->
+      <section class="page" data-page="scan" hidden>
+        <div class="page-heading">
+          <div><p class="eyebrow">Find a book</p><h1>Find your book</h1><p>Upload a cover, take a photo, scan the barcode, or search manually.</p></div>
+        </div>
+
+        <div class="scan-layout">
+          <form class="scan-card primary-scan" id="cover-form">
+            <span class="method-label">Recommended</span>
+            <h2>Scan the front cover</h2>
+            <p>Use a clear, straight photo with the title visible.</p>
+            <div class="photo-selection">
+              <label class="file-drop" for="cover-image">
+                <img id="cover-preview" alt="Selected cover preview" hidden>
+                <span id="cover-prompt"><strong>Choose a cover photo</strong>
+                  <small>JPG, PNG or WebP</small></span>
+              </label>
+              <button class="photo-remove" id="cover-remove" type="button"
+                aria-label="Remove cover photo" hidden>×</button>
+            </div>
+            <input class="file-input" id="cover-image" name="image" type="file"
+              accept="image/jpeg,image/png,image/webp" required>
+            <div class="photo-actions">
+              <button class="button secondary" type="button" data-upload="cover">
+                Upload / change photo
+              </button>
+              <button class="button secondary" type="button" data-camera="cover">
+                Take photo
+              </button>
+            </div>
+            <p id="cover-photo-message" class="form-message" role="status"></p>
+            <button class="button primary full" type="submit">Identify this cover</button>
+          </form>
+
+          <div class="other-methods">
+            <form class="scan-card" id="manual-form">
+              <h2>Search manually</h2>
+              <p>Useful when the cover is damaged or unclear.</p>
+              <label for="manual-title">Book title</label>
+              <input id="manual-title" name="title" maxlength="240">
+              <label for="manual-author">Author <span>(optional)</span></label>
+              <input id="manual-author" name="author" maxlength="180">
+              <label for="manual-isbn">ISBN <span>(optional)</span></label>
+              <input id="manual-isbn" name="isbn" inputmode="numeric">
+              <button class="button secondary full" type="submit">Search for book</button>
+            </form>
+
+            <form class="scan-card" id="barcode-form">
+              <h2>Scan barcode</h2>
+              <p>This separate option works when the ISBN barcode is clear.</p>
+            <div class="photo-selection">
+              <label class="file-drop" for="barcode-image">
+                <img id="barcode-preview" alt="Selected barcode preview" hidden>
+                <span id="barcode-prompt"><strong>Choose a barcode photo</strong>
+                  <small>JPG, PNG or WebP</small></span>
+              </label>
+              <button class="photo-remove" id="barcode-remove" type="button"
+                aria-label="Remove barcode photo" hidden>×</button>
+            </div>
+            <input class="file-input" id="barcode-image" name="image" type="file"
+              accept="image/jpeg,image/png,image/webp" required>
+            <div class="photo-actions">
+              <button class="button secondary" type="button" data-upload="barcode">
+                Upload / change photo
+              </button>
+              <button class="button secondary" type="button" data-camera="barcode">
+                Take photo
+              </button>
+            </div>
+            <p id="barcode-photo-message" class="form-message" role="status"></p>
+              <button class="button secondary full" type="submit">Read barcode</button>
+            </form>
+          </div>
+        </div>
+        <div class="result-panel" id="scan-result" aria-live="polite" hidden></div>
+      </section>
+
+
+      <section class="page" data-page="library" hidden>
+        <div class="page-heading">
+          <div><p class="eyebrow">Personal collection</p><h1>My library</h1><p>Search, favorite, and update your reading progress.</p></div>
+        </div>
+        <form class="filter-bar library-filters" id="library-filters">
+          <label class="sr-only" for="library-query">Search library</label>
+          <input id="library-query" name="q" type="search" placeholder="Search your books">
+          <label class="sr-only" for="library-status">Reading status</label>
+          <select id="library-status" name="reading_status">
+            <option value="">All statuses</option>
+            <option value="identified">Identified</option>
+            <option value="want_to_read">Want to read</option>
+            <option value="reading">Reading</option>
+            <option value="finished">Finished</option>
+          </select>
+          <label class="check-label"><input name="favorite" type="checkbox" value="true"> Favorites only</label>
+          <button class="button primary" type="submit">Apply</button>
+        </form>
+        <p class="result-count" id="library-count"></p>
+        <div class="library-list" id="library-books"></div>
+      </section>
+
+      <section class="page" data-page="profile" hidden>
+        <div class="page-heading">
+          <div><p class="eyebrow">Account settings</p><h1>Your profile</h1><p>Choose interests and manage your password.</p></div>
+        </div>
+        <div class="settings-grid">
+          <section class="simple-card">
+            <h2>Reader details</h2>
+            <dl class="profile-details" id="profile-details"></dl>
+          </section>
+          <form class="simple-card stack-form" id="interests-form">
+            <h2>Reading interests</h2>
+            <p>Choose up to five. They improve catalogue suggestions.</p>
+            <div class="interest-list" id="interest-list"></div>
+            <p class="form-message" data-form-message aria-live="polite"></p>
+            <button class="button primary" type="submit">Save interests</button>
+          </form>
+          <form class="simple-card stack-form" id="password-form">
+            <h2>Change password</h2>
+            <label for="current-password">Current password</label>
+            <input id="current-password" name="current_password" type="password" autocomplete="current-password" required>
+            <button class="button secondary" id="send-password-code" type="button">
+              Send email code
+            </button>
+            <p>Enter the 6-digit code sent to your account email. It expires in 15 minutes.</p>
+            <label for="password-change-code">Email code</label>
+            <input id="password-change-code" name="code" type="text" inputmode="numeric"
+              autocomplete="one-time-code" pattern="[0-9]{6}" maxlength="6" required>
+            <label for="new-password">New password</label>
+            <input id="new-password" name="new_password" type="password" autocomplete="new-password" minlength="8" required>
+            <p class="form-message" data-form-message aria-live="polite"></p>
+            <button class="button secondary" type="submit">Change password</button>
+          </form>
+          <section class="simple-card danger-card" id="delete-card">
+            <h2>Delete account</h2>
+            <p>This permanently removes your library and account.</p>
+            <button class="button danger" id="delete-account" type="button">Delete my account</button>
+          </section>
+        </div>
+      </section>
+
+      <!-- Admin tabs ka layout; asli permission backend check karega. -->
+      <section class="page" data-page="admin" hidden>
+        <div class="page-heading"><div><p class="eyebrow">Admin area</p><h1>Manage Bookrift</h1><p>Choose a section to manage books or review activity.</p></div></div>
+        <nav class="admin-tabs" aria-label="Admin sections">
+          <a href="#admin/overview" data-admin-tab="overview">Overview</a>
+          <a href="#admin/catalogue" data-admin-tab="catalogue">Books</a>
+          <a href="#admin/scans" data-admin-tab="scans">Scans</a>
+          <a href="#admin/messages" data-admin-tab="messages">Messages</a>
+          <a href="#admin/system" data-admin-tab="system">System</a>
+        </nav>
+        <section data-admin-panel="overview" aria-label="Overview">
+          <h2>At a glance</h2><div class="summary-grid admin-stats" id="admin-stats"></div>
+          <p>Use Books to add, edit or delete catalogue records. Scans and Messages have their own sections.</p>
+        </section>
+        <section data-admin-panel="catalogue" aria-label="Books" hidden>
+          <button class="button primary" id="new-admin-book" type="button">Add catalogue book</button>
+          <p>The starter collection contains 20 books checked for title and author. Genres are Bookrift labels. Open a reference to review the source. Older unreviewed records are under Needs review and are excluded from recommendations.</p>
+          <p>Deleting an unused record removes it permanently. Books saved by readers can be rejected instead.</p>
+        <section class="simple-card admin-catalogue-panel">
+          <div class="section-heading">
+            <div><p class="eyebrow">Book records</p><h2>Catalogue management</h2></div>
+            <p class="result-count" id="admin-catalogue-count"></p>
+          </div>
+          <form class="filter-bar admin-filters" id="admin-catalogue-filter" role="search">
+            <label class="sr-only" for="admin-catalogue-query">Search catalogue records</label>
+            <input id="admin-catalogue-query" name="q" type="search" placeholder="Search title, author or ISBN">
+            <label class="sr-only" for="admin-catalogue-status">Catalogue status</label>
+            <select id="admin-catalogue-status" name="status">
+              <option value="">All statuses</option>
+              <option value="VERIFIED" selected>Verified</option>
+              <option value="PENDING">Pending</option>
+              <option value="NEEDS_REVIEW">Needs review</option>
+              <option value="REJECTED">Rejected</option>
+            </select>
+            <button class="button secondary" type="submit">Apply filters</button>
+          </form>
+          <div class="admin-book-list" id="admin-book-list" aria-live="polite"></div>
+        </section>
+
+        </section>
+        <section data-admin-panel="scans" aria-label="Scans" hidden>
+        <section class="simple-card admin-review-panel">
+          <div class="section-heading">
+            <div><p class="eyebrow">Identification history</p><h2>Review recent attempts</h2></div>
+            
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Query</th><th>Method</th><th>OCR</th><th>Decision</th><th>Date</th></tr></thead>
+              <tbody id="identification-rows"></tbody>
+            </table>
+          </div>
+        </section>
+
+          <section class="simple-card"><h2>Recent scans</h2><div class="table-wrap"><table><thead><tr><th>Book</th><th>User</th><th>Result</th></tr></thead><tbody id="recent-scans"></tbody></table></div></section>
+        </section>
+        <section data-admin-panel="messages" aria-label="Messages" hidden>
+          <div class="simple-card"><h2>Recent messages</h2><div id="recent-messages" class="message-list"></div></div>
+        </section>
+        <section data-admin-panel="system" aria-label="System" hidden>
+          <div class="simple-card"><h2>System status</h2><p class="system-line" id="admin-system-line"></p><p>Catalogue lookup works locally. Discovering other books needs an internet connection.</p></div>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <dialog class="book-dialog" id="book-dialog">
+    <button class="dialog-close" id="dialog-close" type="button" aria-label="Close book details">Close</button>
+    <div id="book-detail"></div>
+  </dialog>
+
+  <dialog class="admin-book-dialog" id="admin-book-dialog">
+    <div class="dialog-heading">
+      <div><p class="eyebrow">Catalogue record</p><h2 id="admin-form-title">Add book</h2></div>
+      <button class="dialog-close" id="admin-dialog-close" type="button" aria-label="Close catalogue form">Close</button>
+    </div>
+    <form class="admin-book-form" id="admin-book-form">
+      <input type="hidden" name="book_id">
+
+      <fieldset>
+        <legend>Main details</legend>
+        <div class="form-grid">
+          <div class="field-wide"><label for="admin-title">Title *</label><input id="admin-title" name="title" maxlength="240" required></div>
+          <div><label for="admin-author">Author</label><input id="admin-author" name="author" maxlength="180"></div>
+          <div><label for="admin-status">Status</label><select id="admin-status" name="catalogue_status"><option value="PENDING">Pending</option><option value="VERIFIED">Verified</option><option value="NEEDS_REVIEW">Needs review</option><option value="REJECTED">Rejected</option></select></div>
+          <div><label for="admin-isbn-10">ISBN-10</label><input id="admin-isbn-10" name="isbn_10" inputmode="numeric" maxlength="10"></div>
+          <div><label for="admin-isbn-13">ISBN-13</label><input id="admin-isbn-13" name="isbn_13" inputmode="numeric" maxlength="13"></div>
+          <div><label for="admin-publisher">Publisher</label><input id="admin-publisher" name="publisher" maxlength="180"></div>
+          <div><label for="admin-date">Published date</label><input id="admin-date" name="published_date" maxlength="30"></div>
+          <div class="field-wide"><label for="admin-genres">Genres</label><input id="admin-genres" name="genres" maxlength="500" placeholder="Fiction, Mystery, Adventure"><small>Separate genres with commas.</small></div>
+          <div class="field-wide"><label for="admin-cover-url">Cover URL</label><input id="admin-cover-url" name="cover_url" maxlength="1000"><small>Use a full web URL or a local cover path.</small></div>
+        </div>
+      </fieldset>
+
+      <details>
+        <summary>Descriptions and overview</summary>
+        <div class="form-grid details-grid">
+          <div class="field-wide"><label for="admin-description">Source description</label><textarea id="admin-description" name="description" rows="5" maxlength="20000"></textarea></div>
+          <div class="field-wide"><label for="admin-overview">Consumer overview</label><textarea id="admin-overview" name="overview" rows="4" maxlength="4000"></textarea></div>
+        </div>
+      </details>
+
+      <details>
+        <summary>Provider IDs</summary>
+        <div class="form-grid details-grid">
+          <div><label for="admin-google-id">Google Books ID</label><input id="admin-google-id" name="google_books_id" maxlength="120"></div>
+          <div><label for="admin-edition-id">Open Library edition ID</label><input id="admin-edition-id" name="open_library_edition_id" maxlength="120"></div>
+          <div><label for="admin-work-id">Open Library work ID</label><input id="admin-work-id" name="open_library_work_id" maxlength="120"></div>
+        </div>
+      </details>
+
+      <p class="form-message" data-form-message aria-live="polite"></p>
+      <div class="form-actions">
+        <button class="button secondary" id="admin-form-cancel" type="button">Cancel</button>
+        <button class="button primary" type="submit">Save record</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="confirm-dialog" id="confirm-dialog" aria-labelledby="confirm-message">
+    <form id="confirm-form">
+      <h2 id="confirm-message"></h2>
+      <label for="confirm-password" id="confirm-password-label" hidden>Password</label>
+      <input id="confirm-password" type="password" autocomplete="current-password" hidden>
+      <div class="detail-actions">
+        <button class="button secondary" type="button" id="confirm-cancel">Cancel</button>
+        <button class="button primary" type="submit">Confirm</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Cover aur barcode dono ke liye yahi camera dialog use hoga. -->
+  <dialog id="camera-dialog" aria-labelledby="camera-title">
+    <div class="camera-panel">
+      <button id="camera-close" class="photo-remove" type="button"
+        aria-label="Close camera">×</button>
+      <h2 id="camera-title">Take a photo</h2>
+      <video id="camera-video" autoplay muted playsinline></video>
+      <p id="camera-message" role="status" aria-live="polite"></p>
+      <div class="photo-actions">
+        <button id="camera-capture" class="button primary" type="button" disabled>
+          Use this photo
+        </button>
+        <button id="camera-device" class="button secondary" type="button">
+          Choose photo
+        </button>
+        <button id="camera-cancel" class="button secondary" type="button">Cancel</button>
+      </div>
+      <p class="muted">Choose photo opens your files on a computer; on mobile it may open the camera.</p>
+      <input id="device-camera-input" type="file" accept="image/jpeg,image/png,image/webp"
+        capture="environment" hidden>
+    </div>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <script type="module" src="/assets/app.js"></script>
+</body>
+</html>
